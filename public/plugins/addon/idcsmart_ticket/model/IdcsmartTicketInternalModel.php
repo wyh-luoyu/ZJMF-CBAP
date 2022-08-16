@@ -127,7 +127,7 @@ class IdcsmartTicketInternalModel extends Model
 
         $ticketInternal = $this->alias('ti')
             ->field('ti.id,ti.title,ti.content,ti.ticket_type_id,ti.status,ti.create_time,ti.attachment,a.name as admin_name,ti.last_reply_time,ti.client_id,ti.post_admin_id,ti.admin_id,ti.priority')
-            ->leftJoin('admin a','a.id=ti.admin_id')
+            ->leftJoin('admin a','a.id=ti.post_admin_id')
             ->where('ti.id',$id)
             ->find();
         if (empty($ticketInternal)){
